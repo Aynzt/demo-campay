@@ -46,7 +46,7 @@ public class CampayClientImpl implements CampayClient {
 
             return Optional.of(response.getBody().link());
         } catch (RestClientResponseException e) {
-            log.error(e.getResponseBodyAsString());
+            log.error(e.getMessage(), e);
             return Optional.empty();
         }
     }
