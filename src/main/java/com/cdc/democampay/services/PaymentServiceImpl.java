@@ -3,12 +3,17 @@ package com.cdc.democampay.services;
 import com.cdc.democampay.services.valueobjects.PaymentLinkData;
 import com.cdc.democampay.thirdparty.CampayClient;
 import com.cdc.democampay.thirdparty.valueobjects.LinkData;
+import com.cdc.democampay.thirdparty.valueobjects.WebhookResponse;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
+@Slf4j
 public class PaymentServiceImpl implements PaymentService {
 
     @Value("${provider.campay.redirectUrl}")
@@ -30,5 +35,15 @@ public class PaymentServiceImpl implements PaymentService {
                         .setRedirectUrl(redirectURl)
                         .setFailedRedirectUrl(redirectURl))
                 .orElseThrow();
+    }
+
+    @Override
+    public void handleHook(WebhookResponse response) {
+        try {
+            String resp = new ObjectMapper().writeValueAsString(response);
+            log.info("Response : {}", resp);
+        } catch (JsonProcessingException e) {
+            log.error(e.getMessage(), e);
+        }
     }
 }
