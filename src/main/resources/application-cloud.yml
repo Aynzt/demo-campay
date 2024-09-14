@@ -6,3 +6,4 @@ provider:
     appPassword: "${CAMPAY_APP_PASSWORD}"
     token: "${CAMPAY_TOKEN}"
     webhookSecret: "${CAMPAY_WEBHOOK_SECRET}"
+    redirectUrl: "${CAMPAY_REDIRECT_URL}"

@@ -9,7 +9,7 @@ import lombok.Setter;
 public class WebhookResponse {
     private String status;
     private String reference;
-    private int amount;
+    private String amount;
     private String currency;
     private String operator;
     private String code;
