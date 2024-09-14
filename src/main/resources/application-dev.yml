@@ -1,0 +1,8 @@
+provider:
+  campay:
+    baseUrl: xxx
+    appId: xxx
+    appUserId: xxx
+    appPassword: xxx
+    token: xxx
+    webhookSecret: xxx

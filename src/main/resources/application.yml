@@ -1,11 +1,5 @@
 spring:
   application:
     name: demo-campay
-provider:
-  campay:
-    baseUrl: "${CAMPAY_BASE_URL}"
-    appId: "${CAMPAY_APP_ID}"
-    appUserId: "${CAMPAY_APP_USER_ID}"
-    appPassword: "${CAMPAY_APP_PASSWORD}"
-    token: "${CAMPAY_TOKEN}"
-    webhookSecret: "${CAMPAY_WEBHOOK_SECRET}"
+  profiles:
+    active: dev
